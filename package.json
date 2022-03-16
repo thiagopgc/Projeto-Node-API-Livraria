@@ -1,0 +1,19 @@
+{
+  "name": "projeto-node-api-livraria",
+  "version": "0.0.1",
+  "description": "Projeto final de modulo para construcao de uma API REST ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagopgc/Projeto-Node-API-Livraria.git"
+  },
+  "author": "Thiago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagopgc/Projeto-Node-API-Livraria/issues"
+  },
+  "homepage": "https://github.com/thiagopgc/Projeto-Node-API-Livraria#readme"
+}
