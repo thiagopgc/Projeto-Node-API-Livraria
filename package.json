@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/thiagopgc/Projeto-Node-API-Livraria/issues"
   },
-  "homepage": "https://github.com/thiagopgc/Projeto-Node-API-Livraria#readme"
+  "homepage": "https://github.com/thiagopgc/Projeto-Node-API-Livraria#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
