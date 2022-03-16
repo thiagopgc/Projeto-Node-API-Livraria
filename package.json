@@ -4,13 +4,15 @@
   "description": "Projeto final de modulo para construcao de uma API REST ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thiagopgc/Projeto-Node-API-Livraria.git"
   },
   "author": "Thiago",
+  "type": "module",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thiagopgc/Projeto-Node-API-Livraria/issues"
