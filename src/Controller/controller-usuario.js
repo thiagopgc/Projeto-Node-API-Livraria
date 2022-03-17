@@ -1,6 +1,17 @@
+import UsuarioModel from "../models/model-usuario.js";
+
 const usuarioLivraria = (app) => {
   app.get("/usuario", (req, res) => {
-    res.send("Rota get para usuário.");
+    const usuario = new UsuarioModel(
+      "Thiago",
+      "thiago@gmail.com",
+      "(21)991232998",
+      "Rua Damião de Gois, Campo Grande, RJ",
+      "12356"
+    );
+    res.json({
+      usuario: usuario,
+    });
   });
 };
 
