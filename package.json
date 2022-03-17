@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/thiagopgc/Projeto-Node-API-Livraria#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

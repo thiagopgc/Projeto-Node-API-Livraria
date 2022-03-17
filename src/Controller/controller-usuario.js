@@ -7,7 +7,7 @@ const usuarioLivraria = (app) => {
       "thiago@gmail.com",
       "(21)991232998",
       "Rua Damião de Gois, Campo Grande, RJ",
-      "12356"
+      "123456"
     );
     res.json({
       usuario: usuario,

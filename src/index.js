@@ -1,5 +1,5 @@
 import express from "express";
-import usuarioLivraria from "./src/Controller/controller-usuario.js";
+import usuarioLivraria from "./Controller/controller-usuario.js";
 const app = express();
 const porta = 3000;
 app.use(express.json());
