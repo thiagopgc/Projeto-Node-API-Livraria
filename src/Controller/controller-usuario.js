@@ -1,17 +1,18 @@
 import UsuarioModel from "../models/model-usuario.js";
+import UsuarioDAO from "../DAO/usuarioDAO.js";
 
-const usuarioLivraria = (app) => {
+const usuarioLivraria = (app, bd) => {
+  const usuarioDAO = new UsuarioDAO(bd);
+
   app.get("/usuario", (req, res) => {
-    const usuario = new UsuarioModel(
-      "Thiago",
-      "thiago@gmail.com",
-      "(21)991232998",
-      "Rua Damião de Gois, Campo Grande, RJ",
-      "123456"
-    );
-    res.json({
-      usuario: usuario,
-    });
+    usuarioDAO
+      .pegaTodosUsuarios()
+      .then((resposta) => {
+        res.json(resposta);
+      })
+      .catch((erro) => {
+        res.json(erro);
+      });
   });
 };
 
