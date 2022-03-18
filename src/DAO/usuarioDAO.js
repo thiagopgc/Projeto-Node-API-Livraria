@@ -3,7 +3,7 @@ class UsuarioDAO {
     this.db = db;
   }
 
-  pegaTodosUsuarios = () => {
+  pegarTodosUsuarios = () => {
     return new Promise((resolve, reject) => {
       this.db.all("SELECT * FROM USUARIOS", (error, rows) => {
         if (error) {
