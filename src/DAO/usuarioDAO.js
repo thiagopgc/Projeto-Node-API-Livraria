@@ -7,15 +7,9 @@ class UsuarioDAO {
     return new Promise((resolve, reject) => {
       this.db.all("SELECT * FROM USUARIOS", (error, rows) => {
         if (error) {
-          reject({
-            mensagem: error.message,
-            erro: true,
-          });
+          reject(error);
         } else {
-          resolve({
-            usuarios: rows,
-            erro: false,
-          });
+          resolve(rows);
         }
       });
     });
@@ -28,10 +22,7 @@ class UsuarioDAO {
         email,
         (error, rows) => {
           if (error) {
-            reject({
-              mensagem: error.message,
-              erro: true,
-            });
+            reject(error);
           } else {
             resolve({
               usuario: rows,
@@ -44,11 +35,6 @@ class UsuarioDAO {
   };
   inserirUsuario = (novoUsuario) => {
     return new Promise((resolve, reject) => {
-      // Query com ? para evitar SQL Injection
-      // NUNCA DEVEMOS USAR COM TEMPLATE STRING
-      // Nós inserimos os dados a serem substituidos depois da query
-      // Ou separado por vírgula (QUERY, a,b,c, callback)
-      // Ou em um array (QUERY, [a,b,c] , callback)
       this.db.run(
         "INSERT INTO USUARIOS(NOME, EMAIL, TELEFONE, ENDERECO, SENHA) VALUES (?, ?, ?, ?, ?)",
         novoUsuario.nome,
@@ -58,14 +44,47 @@ class UsuarioDAO {
         novoUsuario.senha,
         (error) => {
           if (error) {
-            reject({
-              mensagem: error.message,
-              erro: true,
-            });
+            reject(error);
+          } else {
+            resolve(`Usuário ${novoUsuario.nome} inserido.`);
+          }
+        }
+      );
+    });
+  };
+
+  deletarUsuario = (id) => {
+    return new Promise((resolve, reject) => {
+      this.db.run("DELETE FROM USUARIOS WHERE ID = ?", id, (error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve({
+            usuario: `Usuario de id ${id} deletado.`,
+            erro: false,
+          });
+        }
+      });
+    });
+  };
+
+  atualizarUsuario = (id, usuario) => {
+    return new Promise((resolve, reject) => {
+      this.db.run(
+        "UPDATE USUARIOS SET NOME = ?, EMAIL = ?, TELEFONE = ?, ENDERECO = ?, SENHA = ? WHERE ID = ?",
+        usuario.nome,
+        usuario.email,
+        usuario.telefone,
+        usuario.endereco,
+        usuario.senha,
+        id,
+        (error) => {
+          if (error) {
+            reject(error);
           } else {
             resolve({
-              mensagem: `Usuário ${novoUsuario.nome} inserido com sucesso`,
-              usuario: novoUsuario,
+              mensagem: `Usuario de id ${id} atualizado.`,
+              usuario: usuario,
               erro: false,
             });
           }
