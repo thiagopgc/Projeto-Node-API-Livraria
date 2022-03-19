@@ -15,22 +15,18 @@ class UsuarioDAO {
     });
   };
 
-  filtrarUsuario = (email) => {
+  filtrarUsuario = (id) => {
     return new Promise((resolve, reject) => {
-      this.db.all(
-        "SELECT * FROM USUARIOS WHERE EMAIL = 'thiagopereira@yahoo.com'",
-        email,
-        (error, rows) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve({
-              usuario: rows,
-              erro: false,
-            });
-          }
+      this.db.all("SELECT * FROM USUARIOS WHERE ID = ?", id, (error, rows) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve({
+            usuario: rows,
+            erro: false,
+          });
         }
-      );
+      });
     });
   };
   inserirUsuario = (novoUsuario) => {

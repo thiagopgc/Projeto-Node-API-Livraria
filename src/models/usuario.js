@@ -1,5 +1,5 @@
-import UsuarioDAO from "../DAO/usuarioDAO";
-import UsuarioModel from "./schema/model-usuario";
+import UsuarioDAO from "../DAO/usuarioDAO.js";
+import UsuarioModel from "./schema/model-usuario.js";
 
 class Usuario {
   constructor(db) {
@@ -12,9 +12,9 @@ class Usuario {
       throw new Error(error.mensagem);
     }
   };
-  pegarUmUsuario = async (email) => {
+  filtrarUsuario = async (id) => {
     try {
-      return await this.dao.pegarUmUsuario(email);
+      return await this.dao.filtrarUsuario(id);
     } catch (error) {
       return {
         mensagem: error.message,
@@ -27,16 +27,18 @@ class Usuario {
       const novoUsuario = new UsuarioModel(
         usuario.nome,
         usuario.email,
+        usuario.telefone,
+        usuario.endereco,
         usuario.senha
       );
       return await this.dao.inserirUsuario(novoUsuario);
     } catch (error) {
-      throw new Error(error.mensagem);
+      throw new Error(error.message);
     }
   };
   deletarUsuario = async (id) => {
     try {
-      await this._verificaUsuario(id);
+      await this._verificarUsuario(id);
 
       return await this.dao.deletarUsuario(id);
     } catch (error) {
@@ -48,13 +50,13 @@ class Usuario {
   };
   atualizarUsuario = async (id, usuario) => {
     try {
-      await this._verificaUsuario(id);
+      await this._verificarUsuario(id);
       const usuarioAtualizado = new UsuarioModel(
-        usuario.nome,
-        usuario.email,
-        usuario.telefone,
-        usuario.endereco,
-        usuario.senha
+        usuario.NOME,
+        usuario.EMAIL,
+        usuario.TELEFONE,
+        usuario.ENDERECO,
+        usuario.SENHA
       );
 
       return await this.dao.atualizarUsuario(id, usuarioAtualizado);
@@ -67,9 +69,17 @@ class Usuario {
   };
 
   _verificarUsuario = async (id) => {
-    const resposta = await this.dao.pegarUmUsuarioId(id);
-    if (resposta.usuario.length === 0) {
-      throw new Error(`Usuario de id ${id} não existe`);
+    try {
+      const resposta = await this.dao.filtrarUsuario(id);
+
+      if (resposta.usuario.length === 0) {
+        throw new Error(`Usuario de id ${id} não existe`);
+      }
+    } catch (error) {
+      return {
+        mensagem: error.message,
+        erro: true,
+      };
     }
   };
 }

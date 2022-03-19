@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/thiagopgc/Projeto-Node-API-Livraria#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "sqlite3": "^5.0.0"
   },

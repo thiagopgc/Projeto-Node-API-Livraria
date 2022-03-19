@@ -19,10 +19,10 @@ const usuarioLivraria = (app, bd) => {
     }
   });
 
-  app.get("/usuario/email/:email", async (req, res) => {
-    const email = req.params.email;
+  app.get("/usuario/id/:id", async (req, res) => {
+    const id = req.params.id;
 
-    res.json(await cliente.pegarmUsuario(email));
+    res.json(await cliente.filtrarUsuario(id));
   });
 
   app.post("/usuario", async (req, res) => {
@@ -50,8 +50,9 @@ const usuarioLivraria = (app, bd) => {
   app.put("/usuario/id/:id", async (req, res) => {
     const id = req.params.id;
     const body = req.body;
+    const resposta = await cliente.atualizarUsuario(id, body);
 
-    res.json(await cliente.atualizarUsuario(id, body));
+    res.json(resposta);
   });
 };
 
