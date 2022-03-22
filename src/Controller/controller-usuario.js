@@ -1,5 +1,3 @@
-import UsuarioModel from "../models/schema/model-usuario.js";
-import UsuarioDAO from "../DAO/usuarioDAO.js";
 import Usuario from "../models/usuario.js";
 
 const usuarioLivraria = (app, bd) => {
