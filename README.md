@@ -21,7 +21,7 @@
  
  - Clone o repositório:
 ```
-git https://github.com/thiagopgc/Projeto-Node-API-Livraria.git
+git clone https://github.com/thiagopgc/Projeto-Node-API-Livraria.git
 ```
 - Acesse a pasta:
 ```
