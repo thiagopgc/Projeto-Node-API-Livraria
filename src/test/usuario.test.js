@@ -39,7 +39,7 @@ describe("POST /usuario", () => {
   });
 });
 
-describe("PUT /usuario", () => {
+describe("PUT/usuario", () => {
   test("If error = false", () => {
     return request(app)
       .put("/usuario/id/6")
@@ -60,9 +60,9 @@ describe("PUT /usuario", () => {
 describe("DELETE usuario/id/2", () => {
   test("If the status is 200", () => {
     return request(app)
-      .delete("/books/book/2")
+      .delete("/usuario/id/2")
       .then((response) => {
-        expect(response.statusCode).toBe(202);
+        expect(response.statusCode).toBe(200);
       });
   });
 });
