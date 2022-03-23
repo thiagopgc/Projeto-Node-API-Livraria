@@ -33,7 +33,7 @@ npm install
 ```
 - Popule o banco de dados:
 ```
-npm run populate
+node ./src/database/tabela-usuario.js
 ```
 - Inicie o servidor:
 ```
