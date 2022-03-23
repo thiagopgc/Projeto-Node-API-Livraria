@@ -52,11 +52,11 @@ class Usuario {
     try {
       await this._verificarUsuario(id);
       const usuarioAtualizado = new UsuarioModel(
-        usuario.NOME,
-        usuario.EMAIL,
-        usuario.TELEFONE,
-        usuario.ENDERECO,
-        usuario.SENHA
+        usuario.nome,
+        usuario.email,
+        usuario.telefone,
+        usuario.endereco,
+        usuario.senha
       );
 
       return await this.dao.atualizarUsuario(id, usuarioAtualizado);
