@@ -117,7 +117,7 @@ Exemplo da resposta esperada:
 }
 ```
 ### <b> POST /usuario </b> 
-Insere um novo usuario na base de dados. Campos <i>nome, email, telefone, endereco e senha</i> são obrigatórios e não podem ser enviados vazios. 
+Insere um novo usuario na base de dados. O Campo <i>senha</i> requer no mínimo 6 caracteres. 
 Modelo do schema a ser utilizado no body.
 
 ```
