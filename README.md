@@ -1,6 +1,5 @@
 # Projeto-Node-API-Livraria 📚
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/thiagopgc/Projeto-Node-API-Livraria/blob/master/LICENSE)
- <p align="justify">Projeto de encerramento do módulo 4 da Resilia Educação. O objetivo é desenvolver uma API Rest com as informações dos usuarios da livraria. </p>
+
 
 <img src="https://img.freepik.com/free-photo/library-with-books_1063-98.jpg?t=st=1648049737~exp=1648050337~hmac=30d59fc4569a801d1af5df9c1b959744e14a1d4a1cf9576d65211974eb7fe448&w=740" />
 
