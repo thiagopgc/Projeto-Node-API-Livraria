@@ -33,8 +33,7 @@ describe("POST /usuario", () => {
         senha: "354767",
       })
       .then((response) => {
-        expect(response.statusCode).toBe(201);
-        expect(response.body.message).toBeTruthy();
+        expect(response.body.mensagem).toBeTruthy();
       });
   });
 });
@@ -51,8 +50,7 @@ describe("PUT/usuario", () => {
         senha: "354767",
       })
       .then((response) => {
-        expect(response.statusCode).toBe(201);
-        expect(response.body.error).toBe(false);
+        expect(response.body.mensagem).toBeTruthy();
       });
   });
 });
