@@ -30,9 +30,7 @@ cd ProjetoNodeAPILivraria
 ```
 npm install
 ```
-- Popule o banco de dados:
-```
-node ./src/database/tabela-usuario.js
+
 ```
 - Inicie o servidor:
 ```
